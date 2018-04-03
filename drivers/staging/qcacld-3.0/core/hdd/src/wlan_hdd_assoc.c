@@ -1937,8 +1937,8 @@ static inline void hdd_send_roamed_ind(struct net_device *dev,
 void hdd_save_gtk_params(hdd_adapter_t *adapter,
 			 tCsrRoamInfo *csr_roam_info, bool is_reassoc)
 {
-	uint8_t *kek;
-	uint32_t kek_len;
+	uint8_t *kek = 0;
+	uint32_t kek_len = 0;
 
 	if (is_reassoc) {
 		kek = csr_roam_info->kek;

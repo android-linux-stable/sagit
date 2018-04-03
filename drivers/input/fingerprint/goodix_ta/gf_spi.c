@@ -95,7 +95,7 @@ static long gf_ioctl(struct file *filp, unsigned int cmd, unsigned long arg)
 		break;
 	case GF_IOC_INPUT_KEY_EVENT:
 		if (copy_from_user(&gf_key, (struct gf_key *)arg, sizeof(struct gf_key))) {
-			pr_err("%s: failed to copy input key event\n");
+			pr_err("%s: failed to copy input key event\n", __func__);
 			retval = -EFAULT;
 			break;
 		}
@@ -103,7 +103,7 @@ static long gf_ioctl(struct file *filp, unsigned int cmd, unsigned long arg)
 		gf_kernel_key_input(gf_dev, &gf_key);
 		break;
 	default:
-		pr_debug("%s: unsupport cmd:0x%x\n", cmd);
+		pr_debug("%s: unsupport cmd:0x%x\n", __func__, cmd);
 	}
 
 	return retval;
